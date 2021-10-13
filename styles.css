@@ -1,0 +1,62 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+/* Background and cover */
+#video-bg {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  top: -1px;
+  min-width: 100%;
+  min-height: 100%;
+  background-image: url(assets/pokeball-bg.png);
+}
+#cover {
+  background: rgba(0, 0, 0, 0.6);
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+/* ==================== */
+
+/* ==== Content ==== */
+
+#content {
+  position: relative;
+  z-index: 2;
+}
+
+.container {
+  margin: 3%;
+  text-align: center;
+}
+
+/* ==== Intro ==== */
+
+.intro {
+  text-align: center;
+  margin: 2%;
+}
+
+.intro-title {
+  color: #fff;
+  font-family: "Miltonian Tattoo", cursive;
+  font-weight: 400;
+  font-size: 50px;
+}
+
+/* ==== Pokemon ==== */
+
+#pokemon {
+}
+
+#pokemon-search {
+  padding: 0.5%;
+  outline: none;
+}

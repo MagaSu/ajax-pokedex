@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Pokemon font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Miltonian+Tattoo&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css" type="text/css" />
+    <link rel="icon" href="assets/pokeball.png" type="image/png" />
+    <title>Pokedex</title>
+  </head>
+  <body>
+    <div class="background">
+      <video
+        id="video-bg"
+        width="100%"
+        height="auto"
+        preload="auto"
+        autoplay
+        loop
+      >
+        <source src="assets/pokeball.mp4" type="video/mp4" />
+      </video>
+    </div>
+    <div id="cover"></div>
+    <div id="content">
+      <div class="container">
+        <div class="intro">
+          <h1 class="intro-title">Pokedex</h1>
+        </div>
+        <div id="pokemon">
+          <button>Previous</button>
+          <input id="pokemon-search" type="text" />
+          <button>Next</button>
+        </div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

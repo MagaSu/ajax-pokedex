@@ -1,17 +1,97 @@
-let input = document.getElementById("pokemon-input");
-let btn = document.getElementsByClassName("btn");
-let previousBtn = document.getElementById("pokemon-previous");
-let nextBtn = document.getElementById("pokemon-next");
-let searchBtn = document.getElementById("pokemon-search");
+// Pokemon section
+const input = document.getElementById("input");
+const btn = document.getElementsByClassName("btn");
+const previous = document.getElementById("previous");
+const next = document.getElementById("next");
+const search = document.getElementById("search");
 
-input.addEventListener("input", () => {
-  if (!input.value == "") {
-    searchBtn.classList.remove("disabled");
-    previousBtn.classList.add("disabled");
-    nextBtn.classList.add("disabled");
+// Pokemon display section
+const content = document.getElementById("pokemon-content");
+const moves = document.getElementById("pokemon-moves");
+
+let autoPilot = true;
+let currentPokemonId;
+
+const getPokemonData = async (query) => {
+  const url = `https://pokeapi.co/api/v2/pokemon/${query}`;
+  const response = await fetch(url);
+
+  if (response.status == 404 || response.statusText == "Not found") {
+    document.getElementById("show-error").classList.remove("hidden");
+    return;
+  }
+
+  const pokemon = await response.json();
+  currentPokemonId = pokemon.id;
+
+  pokemonImg =
+    pokemon.sprites.other.dream_world.front_default == null
+      ? pokemon.sprites.other["official-artwork"].front_default
+      : pokemon.sprites.other.dream_world.front_default;
+
+  document.getElementById("pokemon-name").innerText = pokemon.name;
+  document.getElementById("pokemon-img").setAttribute("src", pokemonImg);
+  document.getElementById(
+    "pokemon-hp"
+  ).innerText = `Health:  ${pokemon.stats[0].base_stat}hp`;
+  document.getElementById(
+    "pokemon-xp"
+  ).innerText = `Damage: ${pokemon.base_experience}xp`;
+  document.getElementById(
+    "pokemon-type"
+  ).innerText = `Type: ${pokemon.types[0].type.name}`;
+  document.getElementById(
+    "pokemon-weight"
+  ).innerText = `Weight:  ${pokemon.weight}kg`;
+  document.getElementById(
+    "pokemon-height"
+  ).innerText = `Height: ${pokemon.height}m`;
+  document.getElementById("pokemon-id").innerText = `ID: ${pokemon.id}`;
+};
+
+const mode = setInterval(() => {
+  if (autoPilot == true) {
+    let randomId = Math.floor(Math.random() * 898) + 1;
+    getPokemonData(randomId);
   } else {
-    searchBtn.classList.add("disabled");
-    previousBtn.classList.remove("disabled");
-    nextBtn.classList.remove("disabled");
+    clearInterval(mode);
+  }
+}, 5000);
+
+input.addEventListener("input", (e) => {
+  if (!input.value == "") {
+    autoPilot = "off";
+    changeClass("searchOn");
+  } else {
+    changeClass("searchOff");
   }
 });
+search.addEventListener("click", () => {
+  getPokemonData(input.value.toLowerCase());
+  input.value = "";
+  changeClass("searchOff");
+});
+previous.addEventListener("click", () => {
+  autoPilot = false;
+  currentPokemonId = currentPokemonId - 1;
+  currentPokemonId = currentPokemonId < 1 ? 898 : currentPokemonId;
+  getPokemonData(currentPokemonId);
+});
+next.addEventListener("click", () => {
+  autoPilot = false;
+  currentPokemonId = currentPokemonId + 1;
+  currentPokemonId = currentPokemonId > 898 ? 1 : currentPokemonId;
+  getPokemonData(currentPokemonId);
+});
+
+function changeClass(option) {
+  if (option == "searchOn") {
+    search.classList.remove("disabled");
+    previous.classList.add("disabled");
+    next.classList.add("disabled");
+  } else {
+    search.classList.add("disabled");
+    previous.classList.remove("disabled");
+    next.classList.remove("disabled");
+  }
+}

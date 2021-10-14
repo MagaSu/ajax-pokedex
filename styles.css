@@ -4,6 +4,12 @@
   border: none;
   font-family: "Montserrat", sans-serif;
 }
+p {
+  color: #fff;
+  font-weight: 300;
+  margin-bottom: 5px;
+}
+
 /* Background and cover */
 #video-bg {
   position: fixed;
@@ -53,16 +59,23 @@
 
 /* ==== Pokemon ==== */
 
-#pokemon-input {
+#search-section {
+  margin-bottom: 3%;
+}
+#input {
   text-align: center;
   padding: 0.5%;
   outline: none;
+  color: #fff;
+  font-weight: 300;
+  background-color: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(0, 0, 0, 5);
 }
 .btn {
   padding: 0.5%;
   width: 70px;
   color: #fff;
-  font-weight: 400;
+  font-weight: 300;
   background-color: rgba(0, 0, 0, 0.3);
   border: 1px solid rgba(0, 0, 0, 5);
 }
@@ -70,9 +83,52 @@
   padding: 0.5%;
   width: 70px;
   color: #000;
-  background-color: rgba(223, 223, 223, 0.5);
+  background-color: rgba(255, 255, 255, 0.3);
   border: 1px solid rgba(0, 0, 0, 5);
 }
 .disabled {
+  /* opacity: 0;
+  width: 0;
+  height: 0;
+  padding: 0;
+  border: none;
+  z-index: -1; */
   display: none;
 }
+
+/* ==== Pokemon display ==== */
+
+#pokemon-content {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  background-color: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(0, 0, 0, 0.5);
+}
+#pokemon {
+  display: flex;
+}
+
+.preview {
+  margin: 1% 5%;
+}
+#pokemon-name {
+  font-family: "Miltonian Tattoo", sans-serif;
+  color: #fff;
+}
+#pokemon-img {
+  width: 250px;
+}
+
+.info {
+  margin: 5%;
+  text-align: left;
+}
+
+/* ==== Error ==== */
+
+.hidden {
+  display: none;
+}
+
+/* ==== ===== ==== */

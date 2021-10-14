@@ -17,7 +17,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400&display=swap"
       rel="stylesheet"
     />
 
@@ -45,11 +45,33 @@
         <div class="intro">
           <h1 class="intro-title">Pokedex</h1>
         </div>
-        <div id="pokemon">
-          <button id="pokemon-previous" class="btn">Previous</button>
-          <input id="pokemon-input" type="text" />
-          <button id="pokemon-search" class="btn disabled">Search</button>
-          <button id="pokemon-next" class="btn">Next</button>
+        <div id="search-section">
+          <button id="previous" class="btn">Previous</button>
+          <input id="input" type="text" />
+          <button id="search" class="btn disabled">Search</button>
+          <button id="next" class="btn">Next</button>
+        </div>
+        <div id="pokemon-display">
+          <div id="pokemon-content">
+            <div id="show-error" class="hidden">ERROR</div>
+            <div id="pokemon">
+              <div class="preview">
+                <h1 id="pokemon-name"></h1>
+                <img id="pokemon-img" src="" />
+              </div>
+              <div class="info">
+                <p id="pokemon-id"></p>
+                <p id="pokemon-type"></p>
+                <p id="pokemon-hp"></p>
+                <p id="pokemon-xp"></p>
+                <p id="pokemon-height"></p>
+                <p id="pokemon-weight"></p>
+                <ul id="pokemon-moves">
+                  <li id="move"></li>
+                </ul>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

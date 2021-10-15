@@ -45,30 +45,43 @@
         <div class="intro">
           <h1 class="intro-title">Pokedex</h1>
         </div>
-        <div id="search-section">
+        <div id="search-section" class="hidden">
           <button id="previous" class="btn">Previous</button>
           <input id="input" type="text" />
           <button id="search" class="btn disabled">Search</button>
           <button id="next" class="btn">Next</button>
         </div>
-        <div id="pokemon-display">
+        <div id="loading-animation" class="lds-hourglass"></div>
+        <div id="pokemon-display" class="hidden">
+          <div id="show-error" class="disabled">
+            <h1 id="error-title">Error 404</h1>
+          </div>
           <div id="pokemon-content">
-            <div id="show-error" class="hidden">ERROR</div>
             <div id="pokemon">
-              <div class="preview">
+              <div id="preview">
                 <h1 id="pokemon-name"></h1>
                 <img id="pokemon-img" src="" />
               </div>
-              <div class="info">
-                <p id="pokemon-id"></p>
-                <p id="pokemon-type"></p>
-                <p id="pokemon-hp"></p>
-                <p id="pokemon-xp"></p>
-                <p id="pokemon-height"></p>
-                <p id="pokemon-weight"></p>
-                <ul id="pokemon-moves">
-                  <li id="move"></li>
-                </ul>
+              <div id="info">
+                <div class="pokemon-info-list">
+                  <h3 id="info-title"></h3>
+                  <div class="info-block">
+                    <div class="qualities">
+                      <p id="pokemon-type"></p>
+                      <p id="pokemon-xp"></p>
+                      <p id="pokemon-hp"></p>
+                    </div>
+                    <div class="characteristic">
+                      <p id="pokemon-id"></p>
+                      <p id="pokemon-height"></p>
+                      <p id="pokemon-weight"></p>
+                    </div>
+                  </div>
+                </div>
+                <div class="pokemon-moves-list">
+                  <h3 id="moves-title"></h3>
+                  <ul id="pokemon-moves"></ul>
+                </div>
               </div>
             </div>
           </div>

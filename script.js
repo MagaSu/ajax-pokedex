@@ -66,6 +66,7 @@ const getPokemonData = async (query) => {
     li.innerHTML = p.move.name;
     moves.appendChild(li);
   });
+
   if (opacityOn) {
     for (let i = 1; i < 100; i++) {
       document.getElementById("pokemon-display").style.opacity = `${i}%`;
